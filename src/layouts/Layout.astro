@@ -1,0 +1,47 @@
+---
+import '../styles/index.scss';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>astro creative base</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta
+      name="description"
+      content="minimal astro starter for creative projects, includes scss setup, gsap, lenis scroll"
+    />
+    <meta property="og:title" content="astro creative base" />
+    <meta
+      property="og:description"
+      content="minimal astro starter for creative projects, includes scss setup, gsap, lenis scroll"
+    />
+    <!-- <meta
+      property="og:image"
+      content="https://astro-creative-base.vercel.app/og-image.jpg"
+    /> -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <script
+      is:inline
+      defer
+      src="https://tracking.jnkl.dev/script.js"
+      data-website-id="b44d7dd2-f222-4333-a09d-e66fbe703a6e"
+      data-domains="astro-creative-base.vercel.app"
+      data-do-not-track="true"></script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/console.ts';
+      import '../scripts/scroll.ts';
+    </script>
+  </body>
+</html>
