@@ -1,18 +1,13 @@
 import Lenis from 'lenis';
 
-const lenis = new Lenis();
-
-const raf = (time: number) => {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-};
-
-requestAnimationFrame(raf);
+const lenis = new Lenis({
+  autoRaf: true,
+});
 
 export const scrollStop = () => {
   const scrollBarWidth = window.innerWidth - document.body.offsetWidth;
   document.body.style.paddingRight = `${scrollBarWidth}px`;
-  document.body.style.overflowY = 'hidden';
+  document.body.style.overflowY = 'clip';
   lenis.stop();
 };
 
