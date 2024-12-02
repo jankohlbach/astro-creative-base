@@ -26,6 +26,9 @@ export default [
     languageOptions: {
       parser: eslintTs.TSParser,
     },
+    rules: {
+      'prettier/prettier': 'off',
+    },
   },
   {
     ignores: [
