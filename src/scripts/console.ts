@@ -11,7 +11,7 @@ console.log(
 );
 
 console.log(
-  '%c🦆 made by https://jankohlbach.com 🦆',
+  '%cmade by https://jankohlbach.com',
   `
   color: #FFFEFD;
   background: #1A1A18;
