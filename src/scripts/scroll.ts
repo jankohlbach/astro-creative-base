@@ -2,6 +2,7 @@ import Lenis from 'lenis';
 
 const lenis = new Lenis({
   autoRaf: true,
+  lerp: 0.07,
 });
 
 export const scrollStop = () => {
