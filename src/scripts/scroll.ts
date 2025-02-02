@@ -17,8 +17,8 @@ export const scrollStop = () => {
 };
 
 export const scrollStart = () => {
+  lenis.start()
   document.body.style.removeProperty('--scroll-bar-width')
   document.body.style.paddingRight = ''
   document.body.style.overflowY = ''
-  lenis.start()
 };
