@@ -1,18 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Canvas from '../components/Canvas.astro';
 ---
 
 <Layout>
+  <Canvas />
   <main>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div class="media">
+        <div data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
+        <div data-js="canvas-item">
+          <video src="/video.mp4" muted autoplay loop playsinline crossorigin=""
+          ></video>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div data-js="canvas-item">
+        <img src="/texture.jpg" alt="test-texture" />
+      </div>
+    </section>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div data-js="canvas-item">
+        <img src="/texture.jpg" alt="test-texture" />
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use '../styles/functions' as *;
+
+  section {
+    margin-block: to-rem(100);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(50);
+    align-items: flex-start;
+  }
+
+  .media {
+    display: flex;
+    gap: to-rem(100);
+    align-items: flex-start;
+
+    > * {
+      flex-basis: 50%;
+    }
+  }
+</style>

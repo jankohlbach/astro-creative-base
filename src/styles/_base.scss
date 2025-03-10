@@ -137,8 +137,14 @@ html.lenis body {
 }
 
 // webgl
-[data-webgl-media] {
-  opacity: 0;
+[data-js="canvas-item"] {
+  opacity: 0.2;
+
+  > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 // tweakpane
