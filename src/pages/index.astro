@@ -3,16 +3,59 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
+  <a href="/page-2">Page 2</a>
   <main>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
-    <h1 style="margin-bottom: 500px;">Astro yay</h1>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
+        <div class="video" data-js="canvas-item">
+          <video src="/video.mp4" muted autoplay loop playsinline crossorigin=""
+          ></video>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <h1>Astro yay</h1>
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style lang="scss">
+  @use '../styles/functions' as *;
+
+  section {
+    margin-block: to-rem(100);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(50);
+    align-items: flex-start;
+  }
+
+  .media {
+    align-items: start;
+  }
+
+  .image {
+    grid-column: span 4;
+  }
+
+  .video {
+    grid-column: 7 / span 6;
+  }
+</style>

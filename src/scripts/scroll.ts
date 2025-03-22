@@ -1,6 +1,6 @@
 import Lenis from 'lenis';
 
-const lenis = new Lenis({
+export const lenis = new Lenis({
   autoRaf: true,
   lerp: 0.07,
 });
