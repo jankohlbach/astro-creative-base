@@ -1,18 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Canvas from '../components/Canvas.astro';
 ---
 
 <Layout>
-  <Canvas />
+  <a href="/page-2">Page 2</a>
   <main>
     <section class="container">
       <h1>Astro yay</h1>
-      <div class="media">
-        <div data-js="canvas-item">
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
           <img src="/texture.jpg" alt="test-texture" crossorigin="" />
         </div>
-        <div data-js="canvas-item">
+        <div class="video" data-js="canvas-item">
           <video src="/video.mp4" muted autoplay loop playsinline crossorigin=""
           ></video>
         </div>
@@ -20,14 +19,18 @@ import Canvas from '../components/Canvas.astro';
     </section>
     <section class="container">
       <h1>Astro yay</h1>
-      <div data-js="canvas-item">
-        <img src="/texture.jpg" alt="test-texture" />
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
       </div>
     </section>
     <section class="container">
       <h1>Astro yay</h1>
-      <div data-js="canvas-item">
-        <img src="/texture.jpg" alt="test-texture" />
+      <div class="grid media">
+        <div class="image" data-js="canvas-item">
+          <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+        </div>
       </div>
     </section>
   </main>
@@ -45,12 +48,14 @@ import Canvas from '../components/Canvas.astro';
   }
 
   .media {
-    display: flex;
-    gap: to-rem(100);
-    align-items: flex-start;
+    align-items: start;
+  }
 
-    > * {
-      flex-basis: 50%;
-    }
+  .image {
+    grid-column: span 4;
+  }
+
+  .video {
+    grid-column: 7 / span 6;
   }
 </style>

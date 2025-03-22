@@ -1,5 +1,7 @@
 ---
 import '../styles/index.scss';
+
+import Canvas from '../components/Canvas.astro';
 ---
 
 <!doctype html>
@@ -42,6 +44,7 @@ import '../styles/index.scss';
   </head>
   <body>
     <slot />
+    <Canvas />
     <script>
       import '../scripts/console.ts';
       import '../scripts/scroll.ts';
