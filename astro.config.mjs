@@ -8,7 +8,7 @@ import glsl from 'vite-plugin-glsl'
 // https://astro.build/config
 export default defineConfig({
   // TODO: change to final domain
-  site: 'https://astro-creative-base.vercel.app',
+  site: import.meta.env.MODE === 'development' ? 'http://localhost:4321' : 'https://astro-creative-base.vercel.app',
   integrations: [
     robotsTxt({
       sitemapBaseFileName: 'sitemap-index',
@@ -20,7 +20,10 @@ export default defineConfig({
       //   },
       // ],
     }),
-    sitemap(),
+    sitemap({
+      lastmod: new Date(),
+      xslURL: '/sitemap.xsl',
+    }),
   ],
   vite: {
     css: {
