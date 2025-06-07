@@ -21,4 +21,4 @@ export const mapRange = (
   outMax: number,
 ) => ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 
-export const hasHover = () => window.matchMedia('(hover: hover) and (min-width: 768px)').matches
+export const hasHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
