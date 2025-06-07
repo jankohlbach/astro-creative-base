@@ -6,7 +6,7 @@
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "build-dev": "astro check && astro build --mode development",
+    "build-dev": "astro check && NODE_ENV=development astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
