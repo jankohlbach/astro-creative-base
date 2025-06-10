@@ -1,4 +1,6 @@
 <script>
+  import type { PlaneParams } from 'curtainsjs';
+
   import { Curtains, Plane } from 'curtainsjs';
 
   import { lenis } from '../scripts/scroll';
@@ -9,7 +11,7 @@
     const planes = [];
 
     const curtains = new Curtains({
-      container: document.querySelector('[data-js="canvas"]'),
+      container: document.querySelector('[data-js="canvas"]') || undefined,
       pixelRatio: Math.min(2, window.devicePixelRatio),
       watchScroll: false,
     });
@@ -24,7 +26,7 @@
 
     const planeElements = document.querySelectorAll('[data-js="canvas-item"]');
 
-    const params = {
+    const params: PlaneParams = {
       vertexShader,
       fragmentShader,
       widthSegments: 100,
@@ -44,7 +46,7 @@
       planes.push(plane);
 
       plane.onRender(() => {
-        plane.uniforms.time.value += 1;
+        plane.uniforms.time.value = (plane.uniforms.time.value as number) + 1;
       });
     });
 
