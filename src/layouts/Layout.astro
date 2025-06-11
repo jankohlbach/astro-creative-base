@@ -1,6 +1,7 @@
 ---
 import '../styles/index.scss';
 
+import Cursor from '../components/Cursor.astro';
 import Canvas from '../components/Canvas.astro';
 ---
 
@@ -43,7 +44,10 @@ import Canvas from '../components/Canvas.astro';
       data-do-not-track="true"></script>
   </head>
   <body>
+    <Cursor />
+
     <slot />
+
     <Canvas />
     <script>
       import '../scripts/console.ts';
