@@ -9,7 +9,7 @@
   window.addEventListener('load', () => {
     scrollStop();
 
-    if (!sessionStorage.getItem('splash:done') && splash) {
+    if (!sessionStorage.getItem('intro:done') && splash) {
       splash.style.display = 'block';
     }
 
@@ -24,28 +24,28 @@
       })
       .call(
         () => {
-          window.dispatchEvent(new Event('splash:done'));
+          window.dispatchEvent(new Event('intro:done'));
         },
         [],
         '<0.4',
       )
       .call(() => {
-        if (!sessionStorage.getItem('splash:done')) {
+        if (!sessionStorage.getItem('intro:done')) {
           scrollStart();
-          sessionStorage.setItem('splash:done', 'true');
+          sessionStorage.setItem('intro:done', 'true');
         }
       });
 
-    if (sessionStorage.getItem('splash:done') && splash) {
+    if (sessionStorage.getItem('intro:done') && splash) {
       tl.progress(1);
-      window.dispatchEvent(new Event('splash:done'));
+      window.dispatchEvent(new Event('intro:done'));
       setTimeout(() => {
         scrollStart();
       }, 500);
     }
   });
 
-  window.addEventListener('splash:done', () => {
+  window.addEventListener('intro:done', () => {
     document.querySelectorAll('[data-inview-manual]').forEach((el) => {
       el.classList.add('inview');
     });

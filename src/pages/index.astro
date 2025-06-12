@@ -5,7 +5,15 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
   <main>
     <section class="container">
-      <h1 data-inview-manual>Astro yay</h1>
+      <h1 data-inview-manual>astro creative base</h1>
+      <p data-inview-manual>
+        astro starter for creative projects, includes scss setup, gsap, lenis
+        scroll, curtainsjs to load media with webgl, custom cursor, inview
+        trigger, splash screen, robots.txt, sitemap.xml
+      </p>
+    </section>
+    <section class="container">
+      <h2 data-inview-manual>section</h2>
       <div class="grid media">
         <div class="image" data-canvas>
           <img src="/texture.jpg" alt="test-texture" crossorigin="" />
@@ -17,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
     <section class="container">
-      <h1 data-inview>Astro yay</h1>
+      <h2 data-inview>section</h2>
       <div class="grid media">
         <div class="image" data-canvas>
           <img src="/texture.jpg" alt="test-texture" crossorigin="" />
@@ -25,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
     <section class="container">
-      <h1 data-inview>Astro yay</h1>
+      <h2 data-inview>section</h2>
       <div class="grid media">
         <div class="image" data-canvas>
           <img src="/texture.jpg" alt="test-texture" crossorigin="" />
@@ -42,6 +50,10 @@ import Layout from '../layouts/Layout.astro';
     flex-direction: column;
     gap: to-rem(50);
     align-items: flex-start;
+  }
+
+  p {
+    max-width: 60ch;
   }
 
   .media {
