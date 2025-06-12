@@ -1,47 +1,79 @@
-# Astro Starter Kit: Minimal
+# astro creative base
 
-```sh
-npm create astro@latest -- --template minimal
+astro starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml
+
+Feedback, ideas, and everything else always welcome.
+
+## What's inside?
+
+### Opinionated SCSS setup
+
+This grew over time and serves me good. Has a very minimalist reset and works with css variables. Also includes some nice mixins and functions like detecting hover devices with ```@include has-hover {}```, converting pixels to rem with ```to-rem(20)``` or fluid sizing with ```clamp-fluid(20, 80)```.
+
+I also generally work with sections, containers and grid. There are some css variables to set it up, the rest is plain css basically.
+
+### GSAP / [Documentation](https://gsap.com/docs/v3/)
+
+Installed as dependency, in this starter only used for the splash screen animation.
+
+### Lenis / [Documentation](https://github.com/darkroomengineering/lenis/blob/main/README.md)
+
+The currently go-to-library for smooth scroll. Also a set of functions to start / stop scroll without jumping elements because of width changes when the scrollbar disappears (e.g. when opening a modal).
+
+### curtains.js [Documentation](https://www.curtainsjs.com/documentation.html)
+
+I switched from three.js to curtains because it's 1. a simpler setup and 2. more lightweight. Most of the time I just want to display images or videos with webgl and apply shaders to it and this setup makes this task super easy. You can easily see how it works on the page, but this is the basic setup if you want to display an image with webgl.
+```
+<div class="image" data-canvas>
+  <img src="/texture.jpg" alt="test-texture" crossorigin="" />
+</div>
+```
+I do have another little project if you need inspiration or help with the shaders [here](https://real-world-shader.jankohlbach.com/).
+
+### Custom Cursor
+
+I often have to include this in creative projects, so this is my take on tracking the cursor position and hovering states.
+
+### Inview Trigger
+
+Same here, often needed, so I included the basic intersection observer logic. Simply add ```[data-inview]``` and adjust the css if you want. For some elements I want to delay the trigger or manually start the animation, e.g. in the hero element when there's a page intro before. For this I'm using ```[data-inview-manual]``` to apply the same styles, while not having it in the intersection observer logic.
+
+### Splash Screen
+
+Not needed all the time, but when, I don't wanna copy it everytime :D
+
+Most of the time I really don't need to preload assets, so this is just a decorative animation for now.
+
+### robots.txt and sitemap.xml
+
+Well, obviously needed, so it's included right away.
+
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+yarn install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Development Server
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the development server on http://localhost:4321
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+yarn dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Production
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Build the application for production:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+yarn build
+```
 
-## 🧞 Commands
+Locally preview production build:
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+yarn preview
+```
