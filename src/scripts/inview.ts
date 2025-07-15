@@ -1,6 +1,6 @@
 let inviewTrigger: NodeList | null = null
 
-const initInViewTrigger = () => {
+const initInViewTrigger = ({trigger}: {trigger: NodeList}) => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -14,7 +14,7 @@ const initInViewTrigger = () => {
     },
   )
 
-  inviewTrigger?.forEach((elTrigger) => {
+  trigger?.forEach((elTrigger) => {
     observer.observe(elTrigger as HTMLElement)
   })
 }
@@ -22,6 +22,6 @@ const initInViewTrigger = () => {
 window.addEventListener('load', () => {
   inviewTrigger = document.querySelectorAll('[data-inview]');
   if (inviewTrigger) {
-    initInViewTrigger();
+    initInViewTrigger({trigger: inviewTrigger});
   }
 });
