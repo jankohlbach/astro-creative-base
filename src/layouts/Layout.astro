@@ -1,11 +1,11 @@
 ---
 import '../styles/index.scss';
 
-import Cursor from '../components/Cursor.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Splash from '../components/Splash.astro';
-import Canvas from '../components/Canvas.astro';
+import Cursor from '@components/Cursor.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import Splash from '@components/Splash.astro';
+import Canvas from '@components/Canvas.astro';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -59,7 +59,7 @@ const shareImage = new URL('og-image.jpg', Astro.site);
 
     <Footer />
 
-    <Splash />
+    <Splash text="splish splash" />
 
     <Canvas />
     <script>

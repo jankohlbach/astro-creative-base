@@ -3,13 +3,15 @@ import { defineConfig } from 'astro/config';
 
 import robotsTxt from 'astro-robots-txt';
 import sitemap from '@astrojs/sitemap';
-import glsl from 'vite-plugin-glsl'
+import glsl from 'vite-plugin-glsl';
 
 // https://astro.build/config
 export default defineConfig({
   // TODO: change to final domain
-  // eslint-disable-next-line no-undef
-  site: process.env.NODE_ENV === 'development' ? 'http://localhost:4321' : 'https://astro-creative-base.vercel.app',
+  site:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:4321'
+      : 'https://astro-creative-base.vercel.app',
   integrations: [
     robotsTxt({
       sitemapBaseFileName: 'sitemap-index',
@@ -30,10 +32,11 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "/src/styles/functions" as *; @use "/src/styles/mixins" as *;',
+          additionalData:
+            '@use "/src/styles/functions" as *; @use "/src/styles/mixins" as *;',
         },
       },
     },
     plugins: [glsl()],
-  }
+  },
 });

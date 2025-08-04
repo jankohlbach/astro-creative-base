@@ -1,43 +1,48 @@
+import globals from 'globals';
 import eslintJs from '@eslint/js';
 import eslintTs from 'typescript-eslint';
+import eslintPluginPrettierConfigRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import astroEslintParser from 'astro-eslint-parser';
 
-export default [
+export default eslintTs.config(
+  // JavaScript
   eslintJs.configs.recommended,
-  ...eslintTs.configs.recommended,
-  ...eslintPluginAstro.configs.recommended,
+
+  // TypeScript
+  eslintTs.configs.eslintRecommended,
+  eslintTs.configs.strict,
+  eslintTs.configs.stylistic,
+
+  // Globals
   {
-    files: ['**/*.astro'],
     languageOptions: {
-      parser: astroEslintParser,
-      parserOptions: {
-        parser: eslintTs.TSParser,
-        extraFileExtensions: ['.astro'],
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
     },
   },
+
+  // Astro
+  eslintPluginAstro.configs.recommended,
+
+  // Prettier
+  eslintPluginPrettierConfigRecommended,
+
   {
     // Define the configuration for `<script>` tag.
     // Script in `<script>` is assigned a virtual file name with the `.js` extension.
-    ...eslintPrettierRecommended,
-    files: ['**/*.{ts,tsx,js,mjs}', '**/*.astro/*.js'],
-    languageOptions: {
-      parser: eslintTs.TSParser,
-    },
+    files: ['**/*.astro/*.js', '*.astro/*.js'],
     rules: {
       'prettier/prettier': 'off',
     },
   },
   {
-    ignores: [
-      'dist',
-      'node_modules',
-      '.github',
-      'types.generated.d.ts',
-      'src/env.d.ts',
-      '.astro',
-    ],
+    // Define the configuration for `<script>` tag when using `client-side-ts` processor.
+    // Script in `<script>` is assigned a virtual file name with the `.ts` extension.
+    files: ['**/*.astro/*.ts', '*.astro/*.ts'],
+    rules: {
+      'prettier/prettier': 'off',
+    },
   },
-];
+);
