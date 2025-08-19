@@ -5,13 +5,13 @@
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   },
   "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+    "editor.defaultFormatter": "astro-build.astro-vscode",
   },
   "[scss]": {
     "editor.formatOnSave": false,
