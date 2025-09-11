@@ -1,9 +1,10 @@
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-export const debounce = (func: any, timeout = 300) => {
+export const debounce = <T extends (...args: unknown[]) => unknown>(
+  func: T,
+  timeout = 300,
+) => {
   let timer: ReturnType<typeof setTimeout>;
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  return (...args: any) => {
+  return (...args: Parameters<T>) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       func.apply(this, args);
