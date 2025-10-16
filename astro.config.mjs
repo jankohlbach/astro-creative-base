@@ -40,3 +40,26 @@ export default defineConfig({
     plugins: [glsl()],
   },
 });
+
+// file meta order
+// -----
+// import css
+
+// import type
+
+// type Something
+
+// interface Something
+
+// import package
+
+// import astro:content
+
+// import @content
+
+// import @layouts
+// import @components
+
+// getStaticPaths
+
+// Astro.Props
