@@ -2,7 +2,8 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:sitemapindex="http://www.sitemaps.org/schemas/sitemap/0.9">
+  xmlns:sitemapindex="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
 
@@ -80,6 +81,27 @@
             color: #dc2626;
             font-weight: 600;
           }
+          .alternates {
+            margin-top: 8px;
+          }
+          .alternate-link {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #4b5563;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            text-decoration: none;
+            margin: 2px 4px 2px 0;
+          }
+          .alternate-link:hover {
+            background: #e5e7eb;
+            text-decoration: none;
+          }
+          .alternate-lang {
+            font-weight: 600;
+            text-transform: uppercase;
+          }
         </style>
       </head>
       <body>
@@ -135,6 +157,7 @@
                   <th>Last Modified</th>
                   <th>Change Frequency</th>
                   <th>Priority</th>
+                  <th>Alternate Links</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,6 +176,17 @@
                     </td>
                     <td class="priority">
                       <xsl:value-of select="sitemap:priority"/>
+                    </td>
+                    <td>
+                      <xsl:if test="xhtml:link[@rel='alternate']">
+                        <div class="alternates">
+                          <xsl:for-each select="xhtml:link[@rel='alternate']">
+                            <a href="{@href}" class="alternate-link">
+                              <span class="alternate-lang"><xsl:value-of select="@hreflang"/></span>
+                            </a>
+                          </xsl:for-each>
+                        </div>
+                      </xsl:if>
                     </td>
                   </tr>
                 </xsl:for-each>
