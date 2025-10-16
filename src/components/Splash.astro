@@ -15,45 +15,38 @@ const { text = 'splash' } = Astro.props;
     document.querySelector('[data-js="splash"]');
 
   window.addEventListener('load', () => {
-    scrollStop();
+    if (!sessionStorage.getItem('splash:played') && splash) {
+      scrollStop();
 
-    if (!sessionStorage.getItem('intro:done') && splash) {
-      splash.style.display = 'block';
-    }
-
-    const tl = gsap
-      .timeline({ delay: 0.2, defaults: { duration: 1, ease: 'power4.inOut' } })
-      .to(splash, {
-        scale: 0.8,
-      })
-      .to(splash, {
-        scale: 0.5,
-        autoAlpha: 0,
-      })
-      .call(
-        () => {
-          window.dispatchEvent(new Event('intro:done'));
-        },
-        [],
-        '<0.4',
-      )
-      .call(() => {
-        if (!sessionStorage.getItem('intro:done')) {
+      gsap
+        .timeline({
+          delay: 0.2,
+          defaults: { duration: 1, ease: 'power4.inOut' },
+        })
+        .to(splash, {
+          scale: 0.8,
+        })
+        .to(splash, {
+          scale: 0.5,
+          autoAlpha: 0,
+        })
+        .call(
+          () => {
+            window.dispatchEvent(new Event('splash:done'));
+          },
+          [],
+          '<0.4',
+        )
+        .call(() => {
           scrollStart();
-          sessionStorage.setItem('intro:done', 'true');
-        }
-      });
-
-    if (sessionStorage.getItem('intro:done') && splash) {
-      tl.progress(1);
-      window.dispatchEvent(new Event('intro:done'));
-      setTimeout(() => {
-        scrollStart();
-      }, 500);
+          sessionStorage.setItem('splash:played', 'true');
+        });
+    } else {
+      window.dispatchEvent(new Event('splash:done'));
     }
   });
 
-  window.addEventListener('intro:done', () => {
+  window.addEventListener('splash:done', () => {
     document.querySelectorAll('[data-inview-manual]').forEach((el) => {
       el.classList.add('inview');
     });
@@ -65,6 +58,14 @@ const { text = 'splash' } = Astro.props;
     <h1>{text}</h1>
   </div>
 </div>
+
+<style lang="scss" is:global>
+  html.play-splash {
+    .splash {
+      display: block;
+    }
+  }
+</style>
 
 <style lang="scss">
   .splash {
