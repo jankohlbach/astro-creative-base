@@ -105,9 +105,9 @@ body {
 }
 
 // native page-transition as progressive enhancement
-// @view-transition {
-//   navigation: auto;
-// }
+@view-transition {
+  navigation: auto;
+}
 
 // scroll
 html.lenis,
