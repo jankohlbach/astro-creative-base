@@ -1,10 +1,11 @@
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import eslintJs from '@eslint/js';
 import eslintTs from 'typescript-eslint';
 import eslintPluginPrettierConfigRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
-export default eslintTs.config(
+export default defineConfig(
   // JavaScript
   eslintJs.configs.recommended,
 
