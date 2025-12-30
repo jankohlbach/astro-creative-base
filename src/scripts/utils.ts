@@ -25,3 +25,6 @@ export const mapRange = (
 
 export const hasHover = () =>
   window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+export const hasMotion = () =>
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
