@@ -11,7 +11,7 @@ export default defineConfig({
   site:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:4321'
-      : 'https://astro-creative-base.vercel.app',
+      : 'https://astro-creative-base.jnkl.dev',
   integrations: [
     robotsTxt({
       sitemapBaseFileName: 'sitemap-index',

@@ -5,5 +5,8 @@
     "dbaeumer.vscode-eslint",
     "astro-build.astro-vscode",
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": [
+    "prettier.prettier-vscode",
+    "esbenp.prettier-vscode",
+  ]
 }
