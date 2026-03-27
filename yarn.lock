@@ -85,10 +85,10 @@
   dependencies:
     prismjs "^1.30.0"
 
-"@astrojs/sitemap@3.7.1":
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/sitemap/-/sitemap-3.7.1.tgz#7fca8dd1bac09ff26d8e124bb57f0e7a73647691"
-  integrity sha512-IzQqdTeskaMX+QDZCzMuJIp8A8C1vgzMBp/NmHNnadepHYNHcxQdGLQZYfkbd2EbRXUfOS+UDIKx8sKg0oWVdw==
+"@astrojs/sitemap@3.7.2":
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/sitemap/-/sitemap-3.7.2.tgz#6647a3f42f75435970abf72d456e1e9d8360dcdc"
+  integrity sha512-PqkzkcZTb5ICiyIR8VoKbIAP/laNRXi5tw616N1Ckk+40oNB8Can1AzVV56lrbC5GKSZFCyJYUVYqVivMisvpA==
   dependencies:
     sitemap "^9.0.0"
     stream-replace-string "^2.0.0"
@@ -2529,10 +2529,10 @@ kleur@^4.1.5:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
-lenis@^1.3.20:
-  version "1.3.20"
-  resolved "https://registry.yarnpkg.com/lenis/-/lenis-1.3.20.tgz#2b543005f847ec66061899968e5514a2b078222c"
-  integrity sha512-sN5+fCQjovD/KZcClwmVLqLIufiHM9w9I/wXPHKUuRLtRa370qdHI2r2WIetSBS/9Sn5yTAGdhxb7W9AtD9x8g==
+lenis@^1.3.21:
+  version "1.3.21"
+  resolved "https://registry.yarnpkg.com/lenis/-/lenis-1.3.21.tgz#13919dcbb6601b0c47789cfcf5d3e258324fa3b6"
+  integrity sha512-RXWTYm7KQE4Kv8ezxL6wvK0Oiv7aRr6FDo+eNaaniTeu7pLdHokqMIJ5CXO4x5ezvd+9ONdpSFkprLpXsVWmEw==
 
 levn@^0.4.1:
   version "0.4.1"
