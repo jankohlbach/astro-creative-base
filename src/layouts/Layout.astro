@@ -9,6 +9,7 @@ import Canvas from '@components/Canvas.astro';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+const lang = 'en';
 const title = 'astro creative base';
 const description =
   'astro starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml';
@@ -16,7 +17,7 @@ const shareImage = new URL('og-image.jpg', Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +36,7 @@ const shareImage = new URL('og-image.jpg', Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={shareImage} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en" />
+    <meta property="og:locale" content={lang} />
     <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
