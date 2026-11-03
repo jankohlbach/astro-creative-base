@@ -7,7 +7,8 @@ export const lenis = new Lenis({
 
 export const scrollStop = () => {
   if (!lenis.isStopped) {
-    const scrollBarWidth = window.innerWidth - document.body.offsetWidth;
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     document.body.style.setProperty(
       '--scroll-bar-width',
       `${scrollBarWidth}px`,
@@ -17,7 +18,7 @@ export const scrollStop = () => {
       scrollBarWidth + 'px';
   }
 
-  document.body.style.overflowY = 'clip';
+  document.documentElement.style.overflowY = 'clip';
   lenis.stop();
 };
 
@@ -25,5 +26,5 @@ export const scrollStart = () => {
   lenis.start();
   document.body.style.removeProperty('--scroll-bar-width');
   document.body.style.paddingRight = '';
-  document.body.style.overflowY = '';
+  document.documentElement.style.overflowY = '';
 };
